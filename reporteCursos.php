@@ -25,7 +25,7 @@ require './Classes/PHPExcel.php';
 // simple query
 
 $query = "SELECT Nombre, bloque, Cupo, HoraInicio, Duracion, DiasDeLaSemana, Precio FROM curso ORDER by bloque DESC";
-$headings = array('Nombre', 'Bloque','Cupo de Alumnos', 'Hora de Inicio', 'Duracion', 'Frecuencia', 'Precio');
+$headings = array('Nombre', 'Bloque del Curso','Cupo de Alumnos', 'Hora de Inicio', 'Duracion', 'Frecuencia', 'Precio');
 
 if ($result = mysql_query($query) or die(mysql_error())) {
   // Create a new PHPExcel object

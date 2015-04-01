@@ -92,10 +92,10 @@ $sql="select
 
   <div class="container">
     <div align="center">
-      <a href="pantallaRegistrarCurso.php?idAlumno=<?php echo $idAlumno;?>&bloque=1"><button class='btn btn-primary btn-xs' >Bloque 1</button></a>
-      <a href="pantallaRegistrarCurso.php?idAlumno=<?php echo $idAlumno;?>&bloque=2"><button class='btn btn-primary btn-xs' >Bloque 2</button></a>
-      <a href="pantallaRegistrarCurso.php?idAlumno=<?php echo $idAlumno;?>&bloque=3"><button class='btn btn-primary btn-xs' >Bloque 3</button></a>
-      <a href="pantallaRegistrarCurso.php?idAlumno=<?php echo $idAlumno;?>&bloque=4"><button class='btn btn-primary btn-xs' >Bloque 4</button></a>
+      <a href="pantallaRegistrarCurso.php?idAlumno=<?php echo $idAlumno;?>&bloque=1"><button class='btn btn-primary btn-xs' >Curso 1</button></a>
+      <a href="pantallaRegistrarCurso.php?idAlumno=<?php echo $idAlumno;?>&bloque=2"><button class='btn btn-primary btn-xs' >Curso 2</button></a>
+      <a href="pantallaRegistrarCurso.php?idAlumno=<?php echo $idAlumno;?>&bloque=3"><button class='btn btn-primary btn-xs' >Curso 3</button></a>
+      <a href="pantallaRegistrarCurso.php?idAlumno=<?php echo $idAlumno;?>&bloque=4"><button class='btn btn-primary btn-xs' >Curso 4</button></a>
     </div>
     <table class="table table-striped table-hover ">
       <thead>

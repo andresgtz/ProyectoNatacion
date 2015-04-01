@@ -247,7 +247,7 @@ include './includes/sesionAdmin.php';
         </div>
 
         <div class="form-group">
-          <label for="bloque" class="col-lg-2 control-label">Bloque</label>
+          <label for="bloque" class="col-lg-2 control-label">Curso</label>
           <div class="col-lg-10">
             <select id="bloque" name = "bloque">
               <option class="form-control" value="1">1</option>
