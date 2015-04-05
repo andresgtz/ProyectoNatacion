@@ -35,7 +35,6 @@ if(isset($_POST["buscar"])){
 $result = mysql_query($sql);
 
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -44,9 +43,9 @@ $result = mysql_query($sql);
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="css/bootstrap.css" media="screen">
 	<script>
-	function valida(curp){
+	function valida(CURP, idAlumno){
 		if (confirm("¿Esta seguro?") == true) {
-			window.location.href = "bajaAlumno.php?curp="+curp;
+			window.location.href = "bajaAlumno.php?curp="+CURP+"&idAlumno="+idAlumno;
 		}
 	}
 	</script>
@@ -109,8 +108,9 @@ $result = mysql_query($sql);
 					<td>$Nombre</td>
 					<td>$Telefono</td>
 					<td>$email</td>
-					<td><a href='bajaAlumno.php?curp=$CURP&idAlumno=$idAlumno' class='btn btn-primary btn-xs'>Eliminar</a></td>
+					<td><a onclick=\"valida($CURP, $idAlumno)\" class=\"btn btn-primary btn-xs\">Eliminar</a></td>
 					</tr>";
+
 				}
 				?>
 
