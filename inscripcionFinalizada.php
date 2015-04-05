@@ -33,7 +33,7 @@ if($idCurso != -1){
 		$sql= "INSERT INTO inscripcion (
 			IDALUMNO, IDCURSO, NOMINAUSUARIO, FORMAPAGO, FECHADEINSCRIPCION, PAGADA)
 			VALUES (
-				$idAlumno, $idCurso, '$nomina', $formaDePago, NOW(), TRUE)";
+				$idAlumno, $idCurso, '$nomina', $formaDePago, NOW(), false)";
 	}else{
 		$sql= "INSERT INTO inscripcion (
 			IDALUMNO, IDCURSO, NOMINAUSUARIO, FORMAPAGO, FECHADEINSCRIPCION, PAGADA)
