@@ -39,7 +39,7 @@ $sql="select
                             on i.idCurso = c.idCurso
 					  inner join alumno a
 							on a.IdAlumno = i.IdAlumno
-       WHERE NOW()-FECHADEINSCRIPCION>=86400 and PAGADA=0 ";
+       WHERE NOW()-FECHADEINSCRIPCION>=0 and PAGADA=0 ";
 
   $result = mysql_query($sql);
 
