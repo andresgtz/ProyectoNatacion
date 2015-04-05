@@ -42,8 +42,9 @@ $result = mysql_query($sql);
 	<title>Reporte</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="css/bootstrap.css" media="screen">
-	<script>
+	<script language="javascript">
 	function valida(CURP, idAlumno){
+		
 		if (confirm("¿Esta seguro?") == true) {
 			window.location.href = "bajaAlumno.php?curp="+CURP+"&idAlumno="+idAlumno;
 		}
@@ -108,7 +109,7 @@ $result = mysql_query($sql);
 					<td>$Nombre</td>
 					<td>$Telefono</td>
 					<td>$email</td>
-					<td><a onclick=\"valida($CURP, $idAlumno)\" class=\"btn btn-primary btn-xs\">Eliminar</a></td>
+					<td><a onclick=\"valida('$CURP', $idAlumno)\" class=\"btn btn-primary btn-xs\">Eliminar</a></td>
 					</tr>";
 
 				}
