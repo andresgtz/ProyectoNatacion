@@ -87,8 +87,8 @@ if($idCurso != -1){
 				$HoraInicio = $row['HoraInicio'];
 			}
 
-			$body = "El motivo de este correo es para notificarle la inscripción de su hijo $NombreAlumno al curso $NombreCurso en los dias $DiasDeLaSemana a la hora $HoraInicio ";
-			smtpmailer($email, 'tecnatacion@gmail.com', 'Natacion Tec', 'CONFIRMACION DE INSCRIPCION CURSO DE NATACION', $body);
+			$body = "El motivo de este correo es para notificarle el registro de su hijo $NombreAlumno al curso $NombreCurso en los dias $DiasDeLaSemana a la hora $HoraInicio 0. Sin embargo, le recordamos que si no se realiza el pago la inscripción no queda completa.";
+			smtpmailer($email, 'tecnatacion@gmail.com', 'Natacion Tec', 'CONFIRMACION DE REGISTRO CURSO DE NATACION', $body);
 		}
 
 		?>
