@@ -40,6 +40,7 @@
                 $('#formReg').validate({
                     rules:{
                         'curp': {
+                        	rangelength: [18,18],
                             required: true,
                             remote: {
                                 type: 'post',
@@ -55,7 +56,7 @@
                     },
                     messages: {
                         'nombreCompleto': { required: 'Debe ingresar nombre alumno'},
-                        'curp': { required: 'Debe ingresar CURP', remote: 'CURP ya registrado'},
+                        'curp': { rangelength:'El curp no es de 18 caracteres', required: 'Favor de ingresar un CURP', remote: 'CURP ya registrado'},
                         'nombrePadre': { required: 'Debe ingresar nombre del padre o tutor'},
                         'email': {required: 'Debe ingresar correo', email: 'Formato incorrecto de correo'}
                     },
