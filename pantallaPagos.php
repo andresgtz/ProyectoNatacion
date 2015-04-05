@@ -37,7 +37,7 @@
 
 	if(isset($_POST["buscar"])){
 		$buscar = $_POST["buscar"];
-		$sql = $sql . " where Nombre like '%$buscar%'";
+		$sql = $sql . " where CURP like '%$buscar%'";
 	}
 	$result = mysql_query($sql);
 
