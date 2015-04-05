@@ -12,8 +12,8 @@
 	$sql = "DELETE FROM alumno WHERE Curp = '$CURP'";
 	$result = mysql_query($sql);
 
-    $sql= "update curso set alumnosInscritos=alumnosinscritos-1 where idCurso='$idCurso' and alumnosinscritos>0";
-    $update = mysql_query($sql);
+    $sql= "update curso set AlumnosInscritos=AlumnosInscritos-1 where idCurso IN (SELECT IdCurso FROM inscripcion WHERE IdAlumno=$idAlumno)";
+    $result = mysql_query($sql);
 
     $sql = "DELETE FROM inscripcion WHERE IdAlumno = '$idAlumno'";
     $result = mysql_query($sql);
