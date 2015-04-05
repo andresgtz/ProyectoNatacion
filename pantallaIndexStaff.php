@@ -30,7 +30,7 @@ alumno";
 
 if(isset($_POST["buscar"])){
 	$buscar = $_POST["buscar"];
-	$sql = $sql . " where Nombre like '%$buscar%'";
+	$sql = $sql . " where CURP like '%$buscar%'";
 }
 $result = mysql_query($sql);
 
@@ -65,7 +65,7 @@ $result = mysql_query($sql);
 		<div class="navbar-collapse collapse navbar-responsive-collapse">
 			<ul class="nav navbar-nav">
 				<form class="navbar-form navbar-left" action="pantallaIndexStaff.php" method="POST">
-					<input type="text" name="buscar" class="form-control col-lg-8" placeholder="Busqueda">
+					<input type="text" name="buscar" class="form-control col-lg-8" placeholder="Busqueda por CURP">
 					<input type="submit" class="form-control col-lg-8">
 				</form>
 				<li><a href="pantallaRegistroAlumno.php">Agregar nuevo alumno</a></li>
