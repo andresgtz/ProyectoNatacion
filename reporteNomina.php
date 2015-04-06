@@ -24,7 +24,7 @@ require './Classes/PHPExcel.php';
 
 // simple query
 
-$query = "SELECT a.NominaUsuario, b.Nombre, b.CURP, b.FechaNacimiento, b.NombrePadre, b.Telefono, b.email FROM inscripcion a, alumno b WHERE a.IdAlumno = b.IdAlumno AND a.FormaPago = 1 ORDER BY a.NominaUsuario";
+$query = "SELECT b.Nomina, b.Nombre, b.CURP, b.FechaNacimiento, b.NombrePadre, b.Telefono, b.email FROM inscripcion a, alumno b WHERE a.IdAlumno = b.IdAlumno AND a.FormaPago = 1 ORDER BY a.NominaUsuario";
 $headings = array('Nomina', 'Nombre del Alumno','CURP', 'Fecha de Nacimiento', 'Nombre del Padre', 'Telefono', 'Correo');
 
 if ($result = mysql_query($query) or die(mysql_error())) {
