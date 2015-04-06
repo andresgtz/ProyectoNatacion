@@ -27,13 +27,20 @@
 	}
 
 	$sql="select
-			idAlumno,
-			CURP,
-			Nombre,
-			Telefono,
-			email
-		from
-			alumno";
+        a.idAlumno as folio,
+        a.Nombre,
+        a.Telefono,
+        a.email,
+        a.CURP,
+        i.idCurso,
+        i.pagada,
+        c.Nombre as curso,
+        c.Precio
+
+      from
+        inscripcion i inner join alumno a inner join curso c
+                            on i.idAlumno = a.idAlumno and i.idCurso = c.IdCurso
+       WHERE i.pagada=0 ";
 
 	if(isset($_POST["buscar"])){
 		$buscar = $_POST["buscar"];
@@ -86,23 +93,22 @@
 
 	<div class="container">
 		<div class="jumbotron">
-			<h1>Bienvenido</h1>
-			<p>Dar click en el CURP para consultar cursos del alumno</p>
+			<h1>Registrar Pagos</h1>
+			<p>Da click en el botn pagó de los alumnos que han realizado sus pagos.</p>
 		</div>
 
   <div class="container">
-
-<a class="btn btn-default" href="pantallaPagosAtrasados.php" role="button">Consultar pagos atrasados</a>
-<a class="btn btn-default" href="pantallaRegistrarPagos.php" role="button">Registrar pagos</a>
-<h2>Alumnos</h2>
     <table class="table table-striped table-hover ">
       <thead>
         <tr>
-          <th>Folio</th>
+          <th>Folio Alumno</th>
           <th>CURP</th>
           <th>Nombre</th>
           <th>Tel&eacute;fono</th>
-		  <th>Correo Electr&oacute;nico</th>
+		      <th>Correo Electr&oacute;nico</th>
+          <th>Curso</th>
+          <th>Precio</th>
+          <th>¿Pagó?</th>
 
           </tr>
         </thead>
@@ -110,11 +116,14 @@
 <?php
 
 		while($row = mysql_fetch_array($result)){
-			$idAlumno=$row['idAlumno'];
+			$idAlumno=$row['folio'];
 			$CURP=$row['CURP'];
 			$Nombre=$row['Nombre'];
 			$Telefono=$row['Telefono'];
 			$email=$row['email'];
+      $precio=$row['Precio'];
+      $curso=$row['curso'];
+      $IdCurso=$row['idCurso'];
 
 
 
@@ -124,6 +133,13 @@
 						<td>$Nombre</td>
 						<td>$Telefono</td>
 						<td>$email</td>
+            <td>$curso</td>
+            <td>$precio</td>
+            <form action='registrarPagos.php' method='POST'>
+          <input type='hidden' name='IdCurso' value='$IdCurso'/>
+          <input type='hidden' name='idAlumno' value='$idAlumno'/>
+          <td><input type='submit' class='btn btn-primary btn-xs' value='Ya pagó'></td>
+          </form>
 					</tr>";
 		}
 ?>
