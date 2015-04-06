@@ -45,6 +45,22 @@ $sql="select
 
   $result = mysql_query($sql);
 
+$sql2="select
+        idCurso,
+        Nombre,
+        Cupo,
+        EdadMinima,
+        AlumnosInscritos,
+        DiasDeLaSemana,
+		HoraInicio,
+        CanMaestros,
+        Precio
+      from
+        curso  where bloque=$bloque and idCurso in (
+          SELECT ins.IDCURSO FROM inscripcion ins WHERE ins.idAlumno = $idAlumno AND ins.IDCURSO = IDCURSO)";
+
+$result2 = mysql_query($sql2);
+
 ?>
 
 <!DOCTYPE html>
@@ -97,8 +113,10 @@ $sql="select
       <a href="pantallaRegistrarCurso.php?idAlumno=<?php echo $idAlumno;?>&bloque=3"><button class='btn btn-primary btn-xs' >Curso 3</button></a>
       <a href="pantallaRegistrarCurso.php?idAlumno=<?php echo $idAlumno;?>&bloque=4"><button class='btn btn-primary btn-xs' >Curso 4</button></a>
     </div>
+
     <table class="table table-striped table-hover ">
       <thead>
+      <p> CURSOS DISPONIBLES </p>
         <tr>
           <th>#</th>
           <th>Curso</th>
@@ -149,7 +167,63 @@ $sql="select
 
 
       </tbody>
+
     </table>
+
+      <table class="table table-striped table-hover ">
+          <thead>
+          <p> CURSOS INSCRITOS </p>
+          <tr>
+              <th>#</th>
+              <th>Curso</th>
+              <th>Num. Maestros</th>
+              <th>Edad M&iacute;nima</th>
+              <th>D&iacute;as de la semana</th>
+              <th>Hora de inicio</th>
+              <th>Precio</th>
+              <th>Cupo</th>
+              <th>Cupo Actual</th>
+              <th>Dar de Baja</th>
+          </tr>
+          </thead>
+          <tbody>
+
+          <?php
+
+          while($row = mysql_fetch_array($result2)){
+              $idCurso = $row['idCurso'];
+              $Nombre = $row['Nombre'];
+              $Cupo = $row['Cupo'];
+              $AlumnosInscritos = $row['AlumnosInscritos']; //Restar Cupo - AlumnosInscritos nos dara el cupo actual
+              $CupoActual = $Cupo - $AlumnosInscritos;
+              $NumMaestros = $row['CanMaestros'];
+              $EdadMinima = $row['EdadMinima'];
+              $DiasDeLaSemana = $row['DiasDeLaSemana'];
+              $Precio = $row['Precio'];
+              $HoraInicio= $row['HoraInicio'];
+
+              echo "  <tr class='tags' id=$idCurso>
+          <td>$idCurso</td>
+          <td>$Nombre</td>
+          <td>$NumMaestros</td>
+          <td>$EdadMinima</td>
+          <td>$DiasDeLaSemana</td>
+			<td>$HoraInicio</td>
+          <td>$Precio</td>
+			<td>$Cupo</td>
+            <td id=c$idCurso> $CupoActual</td>
+          <form action='bajaAlumnoFromCurso.php' method='POST'>
+          <input type='hidden' name='idCurso' value='$idCurso'/>
+          <input type='hidden' name='idAlumno' value='$idAlumno'/>
+          <td><input type='submit' class='btn btn-primary btn-xs' value='Dar de Baja'></td>
+          </form>
+          </tr>";
+          }
+          ?>
+
+
+          </tbody>
+      </table>
 
 
     <hr>
