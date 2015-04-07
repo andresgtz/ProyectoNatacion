@@ -109,7 +109,7 @@ $result = mysql_query($sql);
 					<td>$Nombre</td>
 					<td>$Telefono</td>
 					<td>$email</td>
-					<td><a onclick=\"valida('$CURP', $idAlumno)\" class=\"btn btn-primary btn-xs\">Eliminar</a></td>
+					<td><a onclick=\"valida('$CURP', $idAlumno)\" class=\"btn btn-danger btn-xs\">Eliminar</a></td>
 					</tr>";
 
 				}
