@@ -70,6 +70,14 @@ $result2 = mysql_query($sql2);
   <title>Registrar alumnos</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="css/bootstrap.css" media="screen">
+    <script language="javascript">
+        function valida(idAlumno, idCurso){
+
+            if (confirm("¿Esta seguro?") == true) {
+                window.location.href = "bajaAlumnoFromCurso.php?idAlumno="+idAlumno+"&idCurso="+idCurso;
+            }
+        }
+    </script>
   <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
   <script>
 		$(document).ready(function(){
@@ -215,7 +223,7 @@ $result2 = mysql_query($sql2);
           <form action='bajaAlumnoFromCurso.php' method='POST'>
           <input type='hidden' name='idCurso' value='$idCurso'/>
           <input type='hidden' name='idAlumno' value='$idAlumno'/>
-          <td><input type='submit' class='btn btn-primary btn-xs' value='Dar de Baja'></td>
+          <td><a onclick=\"valida($idAlumno, $idCurso)\" class=\"btn btn-primary btn-xs\">Dar de Baja</a></td>
           </form>
           </tr>";
           }
