@@ -65,7 +65,7 @@ while($row = mysql_fetch_array($result)){
     $HoraInicio = $row['HoraInicio'];
 }
 $body = "El motivo de este correo es para notificarle la baja de su hijo $NombreAlumno del curso $NombreCurso en los dias $DiasDeLaSemana a la hora $HoraInicio.";
-smtpmailer($email, 'tecnatacion@gmail.com', 'Natacion Tec', 'CONFIRMACION DE REGISTRO CURSO DE NATACION', $body);
+smtpmailer($email, 'tecnatacion@gmail.com', 'Natacion Tec', 'CONFIRMACION DE BAJA CURSO DE NATACION', $body);
 
 
 echo "<script language=\"javascript\">
