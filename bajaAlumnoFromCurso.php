@@ -69,7 +69,7 @@ smtpmailer($email, 'tecnatacion@gmail.com', 'Natacion Tec', 'CONFIRMACION DE BAJ
 
 
 echo "<script language=\"javascript\">
-					window.location.href = \"pantallaRegistrarCurso.php?idAlumno=$idAlumno\"
+					window.location.href = \"pantallaRegistrarCurso.php?idAlumno=$idAlumno&bloque=1\"
 				</script>";
 
 // A partir de aqui hay que eliminar las relaciones con las tablas de cursos

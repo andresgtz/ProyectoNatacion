@@ -125,7 +125,7 @@ if($idCurso != -1){
 				</div>
 				<div class="form-group" align="right">
 					<div class="col-lg-10 col-lg-offset-2">
-						<?php $boton = "<a class='btn btn-default' href='pantallaRegistrarCurso.php?idAlumno=".$idAlumno ."' role='button'>Aceptar</a>";
+						<?php $boton = "<a class='btn btn-default' href='pantallaRegistrarCurso.php?idAlumno=".$idAlumno ."&bloque=1"."' role='button'>Aceptar</a>";
 						echo $boton; ?>
 					</div>
 				</div>
