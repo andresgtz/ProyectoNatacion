@@ -61,6 +61,18 @@ $sql2="select
 
 $result2 = mysql_query($sql2);
 
+$sql3="select
+        idAlumno,
+        Nombre,
+        CURP,
+        NombrePadre,
+        Telefono,
+        email
+      from
+        alumno  where idAlumno=$idAlumno";
+
+$result3 = mysql_query($sql3);
+
 ?>
 
 <!DOCTYPE html>
@@ -122,23 +134,61 @@ $result2 = mysql_query($sql2);
       <a href="pantallaRegistrarCurso.php?idAlumno=<?php echo $idAlumno;?>&bloque=4"><button class='btn btn-primary btn-xs' >Curso 4</button></a>
     </div>
 
+
+      <table class="table table-striped table-hover ">
+          <thead>
+          <p> DATOS DEL ALUMNO </p>
+          <tr>
+              <th>#</th>
+              <th>Nombre</th>
+              <th>CURP</th>
+              <th>Nombre del Padre</th>
+              <th>Telefono</th>
+              <th>email</th>
+          </tr>
+          </thead>
+          <tbody>
+
+
+          <?php
+          while($row = mysql_fetch_array($result3)){
+              $idAlumno = $row['idAlumno'];
+              $Nombre = $row['Nombre'];
+              $CURP = $row['CURP'];
+              $NombrePadre = $row['NombrePadre'];
+              $Telefono = $row['Telefono'];
+              $email= $row['email'];
+
+              echo "  <tr class='tags' id=$idAlumno>
+          <td>$idAlumno</td>
+          <td>$Nombre</td>
+          <td>$CURP</td>
+          <td>$NombrePadre</td>
+          <td>$Telefono</td>
+			<td>$email</td>
+          </tr>";
+          }
+          ?>
+
+
     <table class="table table-striped table-hover ">
-      <thead>
-      <p> CURSOS DISPONIBLES </p>
+        <thead>
+        <p> CURSOS DISPONIBLES </p>
         <tr>
-          <th>#</th>
-          <th>Curso</th>
-          <th>Num. Maestros</th>
-          <th>Edad M&iacute;nima</th>
-          <th>D&iacute;as de la semana</th>
-			<th>Hora de inicio</th>
-          <th>Precio</th>
-			<th>Cupo</th>
-			<th>Cupo Actual</th>
-          <th>Inscribir a curso</th>
+            <th>#</th>
+            <th>Curso</th>
+            <th>Num. Maestros</th>
+            <th>Edad M&iacute;nima</th>
+            <th>D&iacute;as de la semana</th>
+            <th>Hora de inicio</th>
+            <th>Precio</th>
+            <th>Cupo</th>
+            <th>Cupo Actual</th>
+            <th>Inscribir a curso</th>
         </tr>
-      </thead>
-      <tbody>
+        </thead>
+        <tbody>
+
 
         <?php
 
