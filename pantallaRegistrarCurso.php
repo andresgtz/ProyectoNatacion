@@ -273,7 +273,7 @@ $result3 = mysql_query($sql3);
           <form action='bajaAlumnoFromCurso.php' method='POST'>
           <input type='hidden' name='idCurso' value='$idCurso'/>
           <input type='hidden' name='idAlumno' value='$idAlumno'/>
-          <td><a onclick=\"valida($idAlumno, $idCurso)\" class=\"btn btn-primary btn-xs\">Dar de Baja</a></td>
+          <td><a onclick=\"valida($idAlumno, $idCurso)\" class=\"btn btn-danger btn-xs\">Dar de Baja</a></td>
           </form>
           </tr>";
           }
