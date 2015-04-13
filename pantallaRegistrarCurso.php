@@ -22,6 +22,32 @@ include "./includes/sesionStaff.php";
 
 $idAlumno= isset($_GET["idAlumno"]) ? $_GET['idAlumno'] : -1;
 $bloque= isset($_GET["bloque"]) ? $_GET['bloque'] : -1;
+if($bloque == 1){
+    $b1 = "danger";
+    $b2 = "primary";
+    $b3 = "primary";
+    $b4 = "primary";
+}else if($bloque == 2){
+    $b1 = "primary";
+    $b2 = "danger";
+    $b3 = "primary";
+    $b4 = "primary";
+}else if($bloque == 3){
+    $b1 = "primary";
+    $b2 = "primary";
+    $b3 = "danger";
+    $b4 = "primary";
+}else if($bloque == 4){
+    $b1 = "primary";
+    $b2 = "primary";
+    $b3 = "primary";
+    $b4 = "danger";
+}else {
+    $b1 = "primary";
+    $b2 = "primary";
+    $b3 = "primary";
+    $b4 = "primary";
+}
 $query="select FechaNacimiento from alumno where idAlumno='$idAlumno'";
 $result = mysql_query($query);
 $row = mysql_fetch_array($result);
@@ -129,10 +155,10 @@ $result3 = mysql_query($sql3);
 
   <div class="container">
     <div align="center">
-      <a href="pantallaRegistrarCurso.php?idAlumno=<?php echo $idAlumno;?>&bloque=1"><button id='bloque 1' class='btn btn-primary btn-xs' >Curso 1</button></a>
-      <a href="pantallaRegistrarCurso.php?idAlumno=<?php echo $idAlumno;?>&bloque=2"><button id='bloque 2' class='btn btn-primary btn-xs' >Curso 2</button></a>
-      <a href="pantallaRegistrarCurso.php?idAlumno=<?php echo $idAlumno;?>&bloque=3"><button id='bloque 3' class='btn btn-primary btn-xs' >Curso 3</button></a>
-      <a href="pantallaRegistrarCurso.php?idAlumno=<?php echo $idAlumno;?>&bloque=4"><button id='bloque 4' class='btn btn-primary btn-xs' >Curso 4</button></a>
+      <a href="pantallaRegistrarCurso.php?idAlumno=<?php echo $idAlumno;?>&bloque=1"><button id='bloque 1' class='btn btn-<?php echo $b1;?> btn-xs' >Curso 1</button></a>
+      <a href="pantallaRegistrarCurso.php?idAlumno=<?php echo $idAlumno;?>&bloque=2"><button id='bloque 2' class='btn btn-<?php echo $b2;?> btn-xs' >Curso 2</button></a>
+      <a href="pantallaRegistrarCurso.php?idAlumno=<?php echo $idAlumno;?>&bloque=3"><button id='bloque 3' class='btn btn-<?php echo $b3;?> btn-xs' >Curso 3</button></a>
+      <a href="pantallaRegistrarCurso.php?idAlumno=<?php echo $idAlumno;?>&bloque=4"><button id='bloque 4' class='btn btn-<?php echo $b4;?> btn-xs' >Curso 4</button></a>
     </div>
 
 
