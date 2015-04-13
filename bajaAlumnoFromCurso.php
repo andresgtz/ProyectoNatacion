@@ -17,7 +17,7 @@ if(isset($_GET['idCurso'])){
 $sql= "update curso set AlumnosInscritos=AlumnosInscritos-1 where idCurso=$idCurso";
 $result = mysql_query($sql);
 
-$sql = "DELETE FROM inscripcion WHERE IdAlumno = '$idAlumno'";
+$sql = "DELETE FROM inscripcion WHERE IdAlumno = '$idAlumno' and IdCurso=$idCurso";
 $result = mysql_query($sql);
 
 require_once('PHPMailer/class.phpmailer.php');

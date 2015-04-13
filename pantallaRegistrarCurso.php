@@ -47,6 +47,7 @@ $sql="select
 
 $sql2="select
         idCurso,
+        bloque,
         Nombre,
         Cupo,
         EdadMinima,
@@ -56,7 +57,7 @@ $sql2="select
         CanMaestros,
         Precio
       from
-        curso  where bloque=$bloque and idCurso in (
+        curso  where idCurso in (
           SELECT ins.IDCURSO FROM inscripcion ins WHERE ins.idAlumno = $idAlumno AND ins.IDCURSO = IDCURSO)";
 
 $result2 = mysql_query($sql2);
@@ -128,10 +129,10 @@ $result3 = mysql_query($sql3);
 
   <div class="container">
     <div align="center">
-      <a href="pantallaRegistrarCurso.php?idAlumno=<?php echo $idAlumno;?>&bloque=1"><button class='btn btn-primary btn-xs' >Curso 1</button></a>
-      <a href="pantallaRegistrarCurso.php?idAlumno=<?php echo $idAlumno;?>&bloque=2"><button class='btn btn-primary btn-xs' >Curso 2</button></a>
-      <a href="pantallaRegistrarCurso.php?idAlumno=<?php echo $idAlumno;?>&bloque=3"><button class='btn btn-primary btn-xs' >Curso 3</button></a>
-      <a href="pantallaRegistrarCurso.php?idAlumno=<?php echo $idAlumno;?>&bloque=4"><button class='btn btn-primary btn-xs' >Curso 4</button></a>
+      <a href="pantallaRegistrarCurso.php?idAlumno=<?php echo $idAlumno;?>&bloque=1"><button id='bloque 1' class='btn btn-primary btn-xs' >Curso 1</button></a>
+      <a href="pantallaRegistrarCurso.php?idAlumno=<?php echo $idAlumno;?>&bloque=2"><button id='bloque 2' class='btn btn-primary btn-xs' >Curso 2</button></a>
+      <a href="pantallaRegistrarCurso.php?idAlumno=<?php echo $idAlumno;?>&bloque=3"><button id='bloque 3' class='btn btn-primary btn-xs' >Curso 3</button></a>
+      <a href="pantallaRegistrarCurso.php?idAlumno=<?php echo $idAlumno;?>&bloque=4"><button id='bloque 4' class='btn btn-primary btn-xs' >Curso 4</button></a>
     </div>
 
 
@@ -233,6 +234,7 @@ $result3 = mysql_query($sql3);
           <p> CURSOS INSCRITOS </p>
           <tr>
               <th>#</th>
+              <th>Periodo</th>
               <th>Curso</th>
               <th>Num. Maestros</th>
               <th>Edad M&iacute;nima</th>
@@ -250,6 +252,7 @@ $result3 = mysql_query($sql3);
 
           while($row = mysql_fetch_array($result2)){
               $idCurso = $row['idCurso'];
+              $bloque = $row['bloque'];
               $Nombre = $row['Nombre'];
               $Cupo = $row['Cupo'];
               $AlumnosInscritos = $row['AlumnosInscritos']; //Restar Cupo - AlumnosInscritos nos dara el cupo actual
@@ -262,6 +265,7 @@ $result3 = mysql_query($sql3);
 
               echo "  <tr class='tags' id=$idCurso>
           <td>$idCurso</td>
+           <td>$bloque</td>
           <td>$Nombre</td>
           <td>$NumMaestros</td>
           <td>$EdadMinima</td>
