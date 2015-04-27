@@ -1,5 +1,8 @@
 <!DOCTYPE html>
 <?php 
+//Andrés Gutiérrez Castaño A01191581
+//Jesús Navarro Marín A00813111
+
 	require_once("includes/conexion.php"); 
 	$CURP="";
 	if(isset($_GET['curp'])){

@@ -1,4 +1,6 @@
 <?php
+//Andrés Gutiérrez Castaño A01191581
+//Jesús Navarro Marín A00813111
 
 /** require the PHPExcel file 1.0 */
 require_once './Classes/PHPExcel.php';

@@ -14,6 +14,9 @@
 * @version    1.0
 * @link       https://github.com/azaelalanis/Sistema-de-Inscripciones-de-Natacion.git
 */
+//Andrés Gutiérrez Castaño A01191581
+//Jesús Navarro Marín A00813111
+
 	include "./includes/conexion.php";
 	session_start();
 
